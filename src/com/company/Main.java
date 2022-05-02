@@ -91,16 +91,61 @@ public class Main {
         }
         System.out.println(Arrays.toString(mas6));
         System.out.println("*****Задание 8/9*******");
-        int[] mas7 = new int[]{-6, 2, 5,-8, 8, 10, 4,-7, 12, 1};
+        int[] mas7 = new int[]{-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
         Arrays.sort(mas7);
-        int item =0;
-        while (mas7[item] < 0){
-            for(int j = item+1; j < mas7.length; j++){
-                if(mas7[item]+mas7[j]==-2){
-                    System.out.println(mas7[item] + " и "+ mas7[j]);
+        int item = 0;
+        while (mas7[item] < 0) {
+            for (int j = item + 1; j < mas7.length; j++) {
+                if (mas7[item] + mas7[j] == -2) {
+                    System.out.println(mas7[item] + " и " + mas7[j]);
                 }
             }
             item++;
         }
+
+        System.out.println("*****Урок 6");
+        int[] arr = generateRandomArray();
+        System.out.println(Arrays.toString(arr));
+        System.out.println("*****Задание 1*****");
+        int sum = 0;
+        for (int weed : arr) {
+            sum += weed;
+        }
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей");
+        System.out.println("*****Задание 2*****");
+        int max=arr[0];
+        int min=arr[0];
+        for (int weed : arr) {
+            if(max<weed){
+                max=weed;
+            }
+            if(min>weed){
+                min=weed;
+            }
+        }
+        System.out.println("Максимальная трата: "+ max + " ,минимальная трата: "+min);
+        System.out.println("*****Задание 3*****");
+        double avg = 0L;
+        int day =0;
+        for (int weed : arr) {
+            day++;
+            avg += weed;
+        }
+        System.out.println("Сумма трат за месяц составила " + avg/day + " рублей");
+        System.out.println("*****Задание 4*****");
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for(int k=reverseFullName.length-1; k>=0;k--){
+            System.out.print(reverseFullName[k]);
+        }
     }
+
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+
 }
